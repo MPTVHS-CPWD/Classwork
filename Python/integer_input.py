@@ -1,1 +1,3 @@
-print(f"You entered {input("Please enter an integer: ")}!")
+integer = input("Please enter an integer: ")
+print(f"You entered {integer}!")
+
