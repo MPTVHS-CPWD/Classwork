@@ -10,12 +10,23 @@ def main():
     for word in words:
         sorted_words[len(word)] += [word]
 
+    print(subword("col", "workforce"))
+    print(superword("recovery", sorted_words))
 
-def superword(word: str):
-    pass
+
+# Gets all subwords in that can be comprised from a given superword
+def superword(superword: str, word_dict: dict):
+    subwords = []
+    for size, word_list in word_dict.items():
+        if size > len(superword):
+            continue
+        for word in word_list:
+            if subword(word, superword):
+                subwords.append(word)
+    return subwords
 
 
-def subword(word_a: str, word_b: str):
+def subword(word_a: str, word_b: str) -> bool:
     # indexes = []
     # for letter in word_a:
     #     index = word_b.find(letter)
@@ -33,7 +44,7 @@ def subword(word_a: str, word_b: str):
     return True
 
 
-print(subword("col", "workforce"))
+
 
 
 
